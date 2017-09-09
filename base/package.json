@@ -1,0 +1,28 @@
+{
+  "name": "hmr",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=v6.10.0"
+  },
+  "scripts": {
+    "serve": "npm-run-all --serial delete serve:build:before serve:build",
+    "serve:build:before": "webpack -d --progress --config webpack.config.js",
+    "serve:build": "npm-run-all --parallel serve:watch serve:start",
+    "serve:watch": "webpack -d --watch --progress --config webpack.config.js",
+    "serve:start": "browser-sync start --config bs-config.js",
+    "build": "npm-run-all -s delete build:webpack",
+    "build:webpack": "webpack -p --config webpack.config.js",
+    "delete": "rimraf ./dist"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "html-webpack-plugin": "^2.30.1",
+    "npm-run-all": "^4.1.1",
+    "rimraf": "^2.6.1",
+    "script-ext-html-webpack-plugin": "^1.8.5",
+    "webpack": "^3.5.6"
+  }
+}
