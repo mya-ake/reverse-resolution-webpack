@@ -9,9 +9,9 @@ module.exports = {
     app: path.join(__dirname, 'src', 'app'),
   },
   output: {
-    path: path.join(__dirname, 'dist', 'public'),
+    path: path.join(__dirname, 'dist', 'assets'),
     filename: '[name].[chunkhash].js',
-    publicPath: '/public/',
+    publicPath: '/assets/',
   },
   plugins: [
     new HtmlWebpackPlugin({
