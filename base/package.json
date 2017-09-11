@@ -7,13 +7,13 @@
     "node": ">=v6.10.0"
   },
   "scripts": {
-    "serve": "npm-run-all --serial delete serve:build:before serve:start",
-    "serve:build:before": "webpack --progress --config webpack.config.js",
+    "serve": "npm-run-all --serial delete build:development serve:start",
     "serve:start": "npm-run-all --parallel serve:watch serve:browser",
     "serve:watch": "webpack --watch --progress --config webpack.config.js",
     "serve:browser": "browser-sync start --config bs-config.js",
     "build": "npm-run-all -s delete build:production",
-    "build:production": "webpack -p --devtool hidden-source-map --config webpack.config.js",
+    "build:production": "webpack -p --progress --devtool hidden-source-map --config webpack.config.js",
+    "build:development": "webpack --progress --config webpack.config.js",
     "start": "node dev/local-server.js",
     "delete": "rimraf ./dist"
   },
