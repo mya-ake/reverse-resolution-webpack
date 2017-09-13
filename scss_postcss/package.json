@@ -1,0 +1,40 @@
+{
+  "name": "scss_postcss",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=v6.10.0"
+  },
+  "scripts": {
+    "serve": "npm-run-all --serial delete build:development serve:start",
+    "serve:start": "npm-run-all --parallel serve:watch serve:browser",
+    "serve:watch": "webpack --watch --progress --config webpack.config.js",
+    "serve:browser": "browser-sync start --config bs-config.js",
+    "build": "npm-run-all -s delete build:production",
+    "build:production": "webpack -p --progress --devtool hidden-source-map --config webpack.config.js",
+    "build:development": "webpack --progress --config webpack.config.js",
+    "start": "node dev/local-server.js",
+    "delete": "rimraf ./dist"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "browser-sync": "^2.18.13",
+    "css-loader": "^0.28.7",
+    "express": "^4.15.4",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.1",
+    "postcss": "^6.0.11",
+    "postcss-loader": "^2.0.6",
+    "resolve-url-loader": "^2.1.0",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.6",
+    "script-ext-html-webpack-plugin": "^1.8.5",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.5.6"
+  }
+}
