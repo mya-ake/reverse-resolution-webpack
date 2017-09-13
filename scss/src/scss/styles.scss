@@ -1,3 +1,5 @@
+@import './_variables';
+
 html, body {
   height: 100%;
   margin: 0;
@@ -12,8 +14,8 @@ html, body {
   }
   &__body {
     &-image {
-      width: 200px;
-      height: 200px;
+      width: $size-iamge;
+      height: $size-iamge;
       margin: auto;
       background-image: url('images/webpack.png');
       background-position: center;
