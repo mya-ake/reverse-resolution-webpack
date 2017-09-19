@@ -38,6 +38,14 @@ module.exports = {
               sourceMap: true,
             },
           },
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                path.join(__dirname, 'src', 'scss', '_variables.scss')
+              ],
+            },
+          },
         ],
       },
       {
