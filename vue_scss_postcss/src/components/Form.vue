@@ -1,10 +1,10 @@
 <template>
   <form v-on:submit.prevent="submit" class="form">
-    <div>
+    <div class="form_item">
       <label for="form-key">Key: </label>
       <input id="form-key" type="text" v-model="kv.key">
     </div>
-    <div>
+    <div class="form__item">
       <label for="form-value">Value: </label>
       <input id="form-value" type="text" v-model="kv.value">
     </div>
@@ -37,6 +37,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 24px;
+  &__item {
+    margin: 0 12px;
+  }
 }
 </style>
