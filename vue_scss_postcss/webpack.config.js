@@ -24,39 +24,45 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        use: [
+          'babel-loader',
+        ],
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            scss: [
-              'vue-style-loader',
-              {
-                loader: 'css-loader',
-                options: {
-                  sourceMap: true,
-                },
+        use: [
+          {
+            loader: 'vue-loader',
+            options: {
+              loaders: {
+                scss: [
+                  'vue-style-loader',
+                  {
+                    loader: 'css-loader',
+                    options: {
+                      sourceMap: true,
+                    },
+                  },
+                  'resolve-url-loader',
+                  {
+                    loader: 'sass-loader',
+                    options: {
+                      sourceMap: true,
+                    },
+                  },
+                  {
+                    loader: 'sass-resources-loader',
+                    options: {
+                      resources: [
+                        path.join(__dirname, 'src', 'scss', '_variables.scss')
+                      ],
+                    },
+                  },
+                ],
               },
-              'resolve-url-loader',
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: true,
-                },
-              },
-              {
-                loader: 'sass-resources-loader',
-                options: {
-                  resources: [
-                    path.join(__dirname, 'src', 'scss', '_variables.scss')
-                  ],
-                },
-              },
-            ],
+            },
           },
-        },
+        ],
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
