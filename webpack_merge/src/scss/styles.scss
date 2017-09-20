@@ -1,0 +1,29 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
+  &__header {
+  }
+  &__body {
+    &-image {
+      width: $size-iamge;
+      height: $size-iamge;
+      margin: auto;
+      background-image: url('images/webpack.png');
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  &__footer {
+    margin-top: auto;
+  }
+}
