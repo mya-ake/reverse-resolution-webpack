@@ -7,15 +7,15 @@
     "node": ">=v6.10.0"
   },
   "scripts": {
-    "serve": "npm-run-all --serial delete build:development serve:start",
+    "serve": "npm-run-all --serial clean build:development serve:start",
     "serve:start": "npm-run-all --parallel serve:watch serve:browser",
     "serve:watch": "webpack --watch --progress --config build/webpack.dev.config.js",
     "serve:browser": "browser-sync start --config bs-config.js",
-    "build": "npm-run-all -s delete build:production",
+    "build": "npm-run-all --serial clean build:production",
     "build:production": "webpack -p --progress --config build/webpack.prod.config.js",
     "build:development": "webpack --progress --config build/webpack.dev.config.js",
     "start": "node dev/local-server.js",
-    "delete": "rimraf ./dist"
+    "clean": "rimraf ./dist"
   },
   "dependencies": {
     "normalize.css": "^7.0.0"
