@@ -8,9 +8,9 @@
   },
   "scripts": {
     "serve": "npm-run-all --serial clean build:development serve:start",
-    "serve:start": "npm-run-all --parallel serve:watch serve:browser",
+    "serve:start": "npm-run-all --parallel serve:watch serve:server",
     "serve:watch": "webpack --watch --progress --config webpack.config.js",
-    "serve:browser": "browser-sync start --config bs-config.js",
+    "serve:server": "browser-sync start --config bs-config.js",
     "build": "npm-run-all --serial clean build:production",
     "build:production": "webpack -p --progress --devtool hidden-source-map --config webpack.config.js",
     "build:development": "webpack --progress --config webpack.config.js",
