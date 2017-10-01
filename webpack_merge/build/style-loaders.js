@@ -27,7 +27,7 @@ const BASE_RULES = {
     {
       loader: 'resolve-url-loader',
       options: {
-        sourceMap: true,
+        sourceMap: false,
       },
     },
     {
