@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="items">
-      <div v-for="(value, key) in items">
+      <div v-for="(value, key) in items" v-bind:key="'v-' + key">
         Key: {{key}}, Value: {{value}}
       </div>
     </div>
