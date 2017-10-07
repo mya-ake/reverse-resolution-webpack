@@ -54,6 +54,7 @@ const createStyleLoaders = (type, { isExtract } = {}) => {
   const rule = BASE_RULES[type]
   if (isExtract === true) {
     return ExtractTextPlugin.extract({
+      fallback: 'style-loader',
       use: rule,
     })
   } else {
