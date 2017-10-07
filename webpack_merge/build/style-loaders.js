@@ -2,8 +2,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const sassResources = require('./sass-resources')
 
+const CREATE_LOADER_TYPES = Object.freeze({
+  css: 'css',
+  sass: 'sass',
+})
+
 const BASE_RULES = {
-  css: [
+  [CREATE_LOADER_TYPES.css]: [
     {
       loader: 'css-loader',
       options: {
@@ -11,7 +16,7 @@ const BASE_RULES = {
       },
     },
   ],
-  sass: [
+  [CREATE_LOADER_TYPES.sass]: [
     {
       loader: 'css-loader',
       options: {
@@ -65,5 +70,6 @@ const createStyleLoaders = (type, { isExtract } = {}) => {
 }
 
 module.exports = {
+  CREATE_LOADER_TYPES,
   createStyleLoaders,
 }

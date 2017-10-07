@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const baseConfig = require('./webpack.base.config')
-const { createStyleLoaders } = require('./style-loaders')
+const { CREATE_LOADER_TYPES, createStyleLoaders } = require('./style-loaders')
 
 module.exports = merge(baseConfig, {
   devtool: 'hidden-source-map',
@@ -13,11 +13,11 @@ module.exports = merge(baseConfig, {
     rules: [
       {
         test: /\.css$/,
-        use: createStyleLoaders('css', { isExtract: true }),
+        use: createStyleLoaders(CREATE_LOADER_TYPES.css, { isExtract: true }),
       },
       {
         test: /\.scss$/,
-        use: createStyleLoaders('sass', { isExtract: true }),
+        use: createStyleLoaders(CREATE_LOADER_TYPES.sass, { isExtract: true }),
       },
     ],
   },

@@ -4,7 +4,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const baseConfig = require('./webpack.base.config')
-const { createStyleLoaders } = require('./style-loaders')
+const { CREATE_LOADER_TYPES, createStyleLoaders } = require('./style-loaders')
 
 module.exports = merge(baseConfig, {
   devtool: 'cheap-eval-source-map',
@@ -12,11 +12,11 @@ module.exports = merge(baseConfig, {
     rules: [
       {
         test: /\.css$/,
-        use: createStyleLoaders('css', { isExtract: false }),
+        use: createStyleLoaders(CREATE_LOADER_TYPES.css, { isExtract: false }),
       },
       {
         test: /\.scss$/,
-        use: createStyleLoaders('sass', { isExtract: false }),
+        use: createStyleLoaders(CREATE_LOADER_TYPES.sass, { isExtract: false }),
       },
     ],
   },
