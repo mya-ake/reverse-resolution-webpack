@@ -31,7 +31,7 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              name: '[path][name].[ext]',
+              name: '[path][name].[hash].[ext]',
               outputPath(name) {
                 return name.replace(/src\//, '')
               },
