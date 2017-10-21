@@ -54,7 +54,7 @@ const createStyleLoaders = (type, { isExtract } = {}) => {
   if ((type in BASE_RULES) === false) {
     throw new Error('Undefined type')
   }
-  isExtract = !!isExtract
+  isExtract = Boolean(isExtract)
 
   const rule = BASE_RULES[type]
   if (isExtract === true) {
